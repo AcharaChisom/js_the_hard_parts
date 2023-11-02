@@ -5,9 +5,10 @@
 /*** CHALLENGE 1 ***/
 
 function makePerson(name, age) {
-	// add code here
-
-
+	return {
+    name: name,
+    age: age
+  }
 }
 
 const vicky = makePerson('Vicky', 24);
@@ -28,9 +29,9 @@ const vicky = makePerson('Vicky', 24);
 /*** CHALLENGE 2 ***/
 
 const personStore = {
-	// add code here
-
-
+	greet: function() {
+    console.log('hello')
+  }
 };
 
 // /********* Uncomment this line to test your work! *********/
@@ -41,9 +42,10 @@ const personStore = {
 /*** CHALLENGE 3 ***/
 
 function personFromPersonStore(name, age) {
-	// add code here
-
-
+	const obj = Object.create(personStore)
+  obj.name = name
+  obj.age = age
+  return obj
 }
 
 const sandra = personFromPersonStore('Sandra', 26);
@@ -58,10 +60,11 @@ const sandra = personFromPersonStore('Sandra', 26);
 
 /*** CHALLENGE 4 ***/
 
-// add code here
+personStore.introduce = function() {
+  console.log(`Hi, my name is ${this.name}`)
+}
 
 // sandra.introduce(); // -> Logs 'Hi, my name is Sandra'
-
 
 
 
@@ -73,9 +76,9 @@ const sandra = personFromPersonStore('Sandra', 26);
 /*** CHALLENGE 5 ***/
 
 function PersonConstructor() {
-	// add code here
-
-
+	this.greet = function() {
+    console.log('hello')
+  }
 }
 
 
@@ -88,9 +91,10 @@ const simon = new PersonConstructor;
 /*** CHALLENGE 6 ***/
 
 function personFromConstructor(name, age) {
-	// add code here
-
-
+	const obj = new PersonConstructor
+  obj.name = name
+  obj.age = age
+  return obj
 }
 
 const mike = personFromConstructor('Mike', 30);
@@ -104,7 +108,9 @@ const mike = personFromConstructor('Mike', 30);
 
 
 /*** CHALLENGE 7 ***/
-// add code here
+PersonConstructor.prototype.introduce = function() {
+  console.log(`Hi, my name is ${this.name}`)
+}
 
 
 // mike.introduce(); // -> Logs 'Hi, my name is Mike'
@@ -117,13 +123,13 @@ const mike = personFromConstructor('Mike', 30);
 /*** CHALLENGE 8 ***/
 
 class PersonClass {
-	constructor() {
-    // add code here
-
-
+	constructor(name) {
+    this.name = name
 	}
 
-	// add code here
+	greet() {
+    console.log('hello')
+  }
 
 }
 
